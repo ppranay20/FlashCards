@@ -18,7 +18,6 @@ const getCards = (req,res) => {
 }
 
 const addCards = (req,res) => {
-    console.log(req.body.data)
     const {question,answer} = req.body.data;
 
     const q = "INSERT INTO card(`question`,`answer`) values (?)"
