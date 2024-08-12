@@ -1,9 +1,9 @@
-const db = require('../db');
+const { db } = require('../db');
 
 const getCards = (req,res) => {
     const q = `select * from card`;
 
-    db.query(q,(err,result) => {
+    db(q,(err,result) => {
         if(err) res.json({
             success : false,
             message : "No data present"
@@ -23,7 +23,7 @@ const addCards = (req,res) => {
     const q = "INSERT INTO card(`question`,`answer`) values (?)"
     const values = [question,answer];
 
-    db.query(q,[values],(err,result) => {
+    db(q,[values],(err,result) => {
         if(err){
             console.log(err)
             return;
@@ -45,7 +45,7 @@ const updateCards = (req,res) => {
         req.body.answer
     ]
 
-    db.query(q,[...values,cardId], (err,result) => {
+    db(q,[...values,cardId], (err,result) => {
         if(err){
             console.log(err)
             return;
@@ -62,7 +62,7 @@ const deleteCards = (req,res) => {
     const cardId = req.params.id;
     const q = "DELETE FROM card WHERE id=?"
 
-    db.query(q,[cardId],(err,result) => {
+    db(q,[cardId],(err,result) => {
         if(err){
             console.log(err)
             return;
