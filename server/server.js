@@ -4,6 +4,7 @@ const cors = require('cors');
 const {cardRouter} = require('./routes/cardRoute')
 
 app.use(cors());
+app.use('/', express.static('/build'))
 app.use(express.json());
 app.use("/api",cardRouter);
 
