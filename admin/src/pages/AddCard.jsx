@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import backend_url from '../utils/url';
 
 function AddCard() {
   const [data,setData] = useState({
@@ -11,7 +12,7 @@ function AddCard() {
   const addQuestion = async (e) => {
     e.preventDefault();
     try{
-      const res = await axios.post("http://localhost:3000/api/add",{data})
+      const res = await axios.post(`${backend_url}/add`,{data})
       if(res.data.success){
         toast.success("Card Created Successfully",{position : 'top-right'});
         setData({

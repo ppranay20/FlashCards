@@ -15,7 +15,7 @@ function App() {
 
   const fetchData = async () => {
     try{
-      const res = await axios.get("http://localhost:3000/api/")
+      const res = await axios.get("https://flashcards-backend-hoxw.onrender.com")
       if(res.data.success){
         setData(res.data.data);
       }

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import { MdDelete } from "react-icons/md";
+import backend_url from '../utils/url';
 
 
 const DeleteCard = () => {
@@ -9,7 +10,7 @@ const DeleteCard = () => {
   
   const fetchData = async () => {
     try{
-      const res = await axios.get('http://localhost:3000/api')
+      const res = await axios.get(`${backend_url}`)
       if(res.data.success){
         setQuestions(res.data.data)
       }
@@ -27,7 +28,7 @@ const DeleteCard = () => {
 
   const deleteQuestion = async (id) => {
     try{
-      const res = await axios.delete(`http://localhost:3000/api/delete/${id}`);
+      const res = await axios.delete(`${backend_url}/${id}`);
       if(res.data.success){
         toast.success(res.data.message);
         fetchData();

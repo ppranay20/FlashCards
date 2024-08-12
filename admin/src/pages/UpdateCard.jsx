@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import backend_url from '../utils/url';
 
 const UpdateCard = () => {
   const [questions, setQuestions] = useState([]);
@@ -11,7 +12,7 @@ const UpdateCard = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api');
+      const res = await axios.get(`${backend_url}`);
       if (res.data.success) {
         setQuestions(res.data.data);
         console.log(res.data.data);
@@ -37,7 +38,7 @@ const UpdateCard = () => {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.put(`http://localhost:3000/api/update/${currentQuestion.id}`, {
+      const res = await axios.put(`${backend_url}/${currentQuestion.id}`, {
         question: newQuestion,
         answer: newAnswer,
       });
