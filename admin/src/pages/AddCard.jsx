@@ -19,7 +19,6 @@ function AddCard() {
           question : '',
           answer : ''
         });
-        console.log(data)
       }
     }
     catch(err){

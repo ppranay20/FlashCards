@@ -38,7 +38,7 @@ const UpdateCard = () => {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.put(`${backend_url}/${currentQuestion.id}`, {
+      const res = await axios.put(`${backend_url}/update/${currentQuestion.id}`, {
         question: newQuestion,
         answer: newAnswer,
       });

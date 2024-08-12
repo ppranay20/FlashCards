@@ -28,7 +28,7 @@ const DeleteCard = () => {
 
   const deleteQuestion = async (id) => {
     try{
-      const res = await axios.delete(`${backend_url}/${id}`);
+      const res = await axios.delete(`${backend_url}/delete/${id}`);
       if(res.data.success){
         toast.success(res.data.message);
         fetchData();

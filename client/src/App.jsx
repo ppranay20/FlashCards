@@ -15,7 +15,7 @@ function App() {
 
   const fetchData = async () => {
     try{
-      const res = await axios.get("https://flashcards-backend-hoxw.onrender.com")
+      const res = await axios.get("https://flashcards-backend-hoxw.onrender.com/api/")
       if(res.data.success){
         setData(res.data.data);
       }
