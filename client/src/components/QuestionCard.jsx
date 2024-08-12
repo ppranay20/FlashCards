@@ -31,6 +31,7 @@ function QuestionCard({isFlipped,setIsFlipped,questions,answer}) {
         <input type="text" onChange={(e) => setInputAnswer(e.target.value)} required placeholder='Enter the answer' className='outline-none border-black border-[1px] rounded-lg px-2 py-1 w-[200px] mx-auto my-3' />
         <div className='flex justify-center flex-col'>
           <button type='submit' className='border bg-black text-white px-20 py-1.5 mx-20 rounded-md my-3'>Submit</button>
+          {!attempted && <p className='text-[#888888] text-center'>Attempt to see the answer</p>}
           {attempted && <button className='border bg-black text-white px-20 py-1.5 mx-20 rounded-md my-3' onClick={onClickHandler}>See Answer</button>}
         </div>
     </form>

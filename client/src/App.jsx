@@ -7,6 +7,7 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 import { useEffect } from 'react';
 import axios from 'axios'
 import { ToastContainer} from 'react-toastify';
+import seeddata from './seeddata'
 
 function App() {
   const [isFlipped,setIsFlipped] = useState(false);
@@ -47,7 +48,17 @@ function App() {
       <div className='h-screen flex justify-evenly items-center mb-20'>
         <button className='relative left-20' onClick={leftHandler}><FaArrowCircleLeft size={30} /></button>
             {
-              data.map((item,index) => {
+              data.length === 0 ? 
+              seeddata.map((item,index) => {
+                if(index === questionIndex){
+                  return <div>
+                      <ReactCardFlip flipDirection='horizontal' isFlipped={isFlipped}>
+                      <QuestionCard key={index} answer={item.answer} questions={item.question} isFlipped={isFlipped} setIsFlipped={setIsFlipped}></QuestionCard>
+                      <AnswerCard key={index} isFlipped={isFlipped} answer={item.answer} setIsFlipped={setIsFlipped}></AnswerCard>
+                      </ReactCardFlip>
+                  </div>
+                }
+              }) : data.map((item,index) => {
                 if(index === questionIndex){
                   return <div>
                       <ReactCardFlip flipDirection='horizontal' isFlipped={isFlipped}>
