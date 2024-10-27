@@ -46,7 +46,7 @@ function App() {
   return (
     <div>
       <div className='h-screen flex justify-evenly items-center mb-20'>
-        <button className='relative left-20' onClick={leftHandler}><FaArrowCircleLeft size={30} /></button>
+        <button className='relative left-24' onClick={leftHandler}><FaArrowCircleLeft size={30} /></button>
             {
               data.length === 0 ? 
               seeddata.map((item,index) => {
