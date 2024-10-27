@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div>
-      <div className='h-screen flex justify-evenly items-center mb-20'>
+      <div className='h-screen flex justify-evenly items-center mb-24'>
         <button className='relative left-24' onClick={leftHandler}><FaArrowCircleLeft size={30} /></button>
             {
               data.length === 0 ? 
